@@ -83,24 +83,53 @@
 // console.log('Операция завершена');
 
 // Задача 4
-const totalSpent = 5000;
-let payment = 500;
-let discount = 0;
+// const totalSpent = 5000;
+// let payment = 500;
+// let discount = 0;
 
-if (totalSpent < 100) {
-    console.log('Не партнер, скидка 0%');
-} else if (totalSpent >= 100 && totalSpent < 1000) {
-    console.log('Бронзовый партнер, скидка 2%');
+// if (totalSpent < 100) {
+//     console.log('Не партнер, скидка 0%');
+// } else if (totalSpent >= 100 && totalSpent < 1000) {
+//     console.log('Бронзовый партнер, скидка 2%');
 
-    discount = 0.02;
-} else if (totalSpent >= 1000 && totalSpent < 5000) {
-    console.log('Серебрянный партнер, скидка 5%');
+//     discount = 0.02;
+// } else if (totalSpent >= 1000 && totalSpent < 5000) {
+//     console.log('Серебрянный партнер, скидка 5%');
 
-    discount = 0.05;
-} else {
-    console.log('Золотой партнер, скидка 10%');
+//     discount = 0.05;
+// } else {
+//     console.log('Золотой партнер, скидка 10%');
 
-    discount = 0.1;
-}
+//     discount = 0.1;
+// }
 
-console.log(`Оформляем заказ на сумму ${payment} со скидкой ${discount * 100}%`);
+// payment -= payment * discount;
+
+// console.log(`Оформляем заказ на сумму ${payment} со скидкой ${discount * 100}%`);
+
+// totalSpent += payment;
+
+// console.log(`Общая сумма потраченного в магазине: ${totalSpent}`);
+
+// работа с DOM
+const btnAdd = document.querySelector('button[data-add]');
+const resetBtn = document.querySelector('button[data-reset]')
+const valueInput = document.querySelector('input[data-value]');
+const outputEl = document.querySelector('.js-output span');
+
+let total = 0;
+
+btnAdd.addEventListener('click', function () {
+    console.log('click')
+
+    const value = Number(valueInput.value);
+
+    total += value;
+    outputEl.textContent = total;
+    valueInput.value = '';
+})
+
+resetBtn.addEventListener('click', function () {
+    total = 0;
+    outputEl.textContent = total;
+})
